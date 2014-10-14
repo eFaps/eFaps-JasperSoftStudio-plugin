@@ -1,15 +1,22 @@
-/*******************************************************************************
- * Copyright (C) 2005 - 2014 TIBCO Software Inc. All rights reserved.
- * http://www.jaspersoft.com.
- * 
- * Unless you have purchased  a commercial license agreement from Jaspersoft,
- * the following license terms  apply:
- * 
- * This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- ******************************************************************************/
+/*
+ * Copyright 2003 - 2014 The eFaps Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Revision:        $Rev$
+ * Last Changed:    $Date$
+ * Last Changed By: $Author$
+ */
 package org.efaps.jasper.eql;
 
 import java.io.File;
@@ -33,50 +40,50 @@ import org.osgi.framework.Bundle;
 import  org.efaps.jasper.eql.Activator;
 
 public class EFapsClasspathContainer implements IClasspathContainer {
-	public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); //$NON-NLS-1$
+    public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); //$NON-NLS-1$
 
-	// path string that uniquiely identifies this container instance
-	private IPath _path;
+    // path string that uniquiely identifies this container instance
+    private IPath _path;
 
-	public EFapsClasspathContainer(IPath path, IJavaProject project) {
-		_path = path;
-	}
+    public EFapsClasspathContainer(IPath path, IJavaProject project) {
+        _path = path;
+    }
 
-	public IClasspathEntry[] getClasspathEntries() {
-		List<IClasspathEntry> entryList = new ArrayList<IClasspathEntry>();
+    public IClasspathEntry[] getClasspathEntries() {
+        List<IClasspathEntry> entryList = new ArrayList<IClasspathEntry>();
 
-		Bundle bundle = Activator.getDefault().getBundle();
-		Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true); //$NON-NLS-1$ //$NON-NLS-2$
-		if (urls != null) {
-			while (urls.hasMoreElements()) {
-				URL url = urls.nextElement();
-				try {
-					URL fileURL = FileLocator.toFileURL(url);
-					URI uri = new URI(fileURL.getProtocol(), fileURL.getUserInfo(), fileURL.getHost(), fileURL.getPort(), fileURL.getPath(), fileURL.getQuery(), null);
-					// fileURL.toURI();
-					Path binpath = new Path(new File(uri).getAbsolutePath());
-					Path srcpath = binpath;
-					entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/"))); //$NON-NLS-1$
-				} catch (URISyntaxException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		// convert the list to an array and return it
-		return entryList.toArray(new IClasspathEntry[entryList.size()]);
-	}
+        Bundle bundle = Activator.getDefault().getBundle();
+        Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true); //$NON-NLS-1$ //$NON-NLS-2$
+        if (urls != null) {
+            while (urls.hasMoreElements()) {
+                URL url = urls.nextElement();
+                try {
+                    URL fileURL = FileLocator.toFileURL(url);
+                    URI uri = new URI(fileURL.getProtocol(), fileURL.getUserInfo(), fileURL.getHost(), fileURL.getPort(), fileURL.getPath(), fileURL.getQuery(), null);
+                    // fileURL.toURI();
+                    Path binpath = new Path(new File(uri).getAbsolutePath());
+                    Path srcpath = binpath;
+                    entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/"))); //$NON-NLS-1$
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        // convert the list to an array and return it
+        return entryList.toArray(new IClasspathEntry[entryList.size()]);
+    }
 
-	public String getDescription() {
-		return "eFaps Library"; //$NON-NLS-1$
-	}
+    public String getDescription() {
+        return "eFaps Library"; //$NON-NLS-1$
+    }
 
-	public int getKind() {
-		return IClasspathContainer.K_APPLICATION;
-	}
+    public int getKind() {
+        return IClasspathContainer.K_APPLICATION;
+    }
 
-	public IPath getPath() {
-		return _path;
-	}
+    public IPath getPath() {
+        return _path;
+    }
 }
