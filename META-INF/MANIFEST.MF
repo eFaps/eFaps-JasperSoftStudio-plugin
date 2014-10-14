@@ -7,7 +7,6 @@ Bundle-Activator: org.efaps.jasper.eql.Activator
 Require-Bundle: com.jaspersoft.studio.data;bundle-version="6.0.0",
  com.jaspersoft.studio.server;bundle-version="6.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Bundle-ActivationPolicy: lazy
 Eclipse-BuddyPolicy: registered
 Eclipse-RegisterBuddy: com.jaspersoft.studio.data
 Bundle-ClassPath: .,

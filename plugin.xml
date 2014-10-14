@@ -8,7 +8,7 @@
             QueryDesignerClass="org.efaps.jasper.eql.EqlQueryDesigner"
             language="eFaps">
       </queryDesigner>
-      
+
    </extension>
     <extension
         id="org.efaps.jasper.eFaps_CONTAINER"
@@ -27,6 +27,6 @@
 </extension>
 <extension
          point="com.jaspersoft.studio.dataAdapters">
-         <dataAdapter ClassFactory="org.efaps.jasper.data.EFapsAdapterFactory"/>      
+         <dataAdapter ClassFactory="org.efaps.jasper.data.EFapsAdapterFactory"/>
    </extension>
 </plugin>
