@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<extension
+         point="com.jaspersoft.studio.queryDesigner">
+      <queryDesigner
+            QueryDesignerClass="org.efaps.jasper.eql.EqlQueryDesigner"
+            language="eFaps">
+      </queryDesigner>
+      
+   </extension>
+    <extension
+        id="org.efaps.jasper.eFaps_CONTAINER"
+        name="org.efaps.jasper.eFaps_CONTAINER"
+        point="org.eclipse.jdt.core.classpathContainerInitializer">
+     <classpathContainerInitializer
+           class="org.efaps.jasper.eql.EFapsClasspathContainerInitializer"
+           id="org.efaps.jasper.eFaps_CONTAINER">
+     </classpathContainerInitializer>
+  </extension>
+<extension
+      point="net.sf.jasperreports.classpathcontainer">
+      <classpathcontainer
+           ClassFactory="org.efaps.jasper.eql.EFapsClasspathContainerFactory">
+      </classpathcontainer>
+</extension>
+<extension
+         point="com.jaspersoft.studio.dataAdapters">
+         <dataAdapter ClassFactory="org.efaps.jasper.data.EFapsAdapterFactory"/>      
+   </extension>
+</plugin>
