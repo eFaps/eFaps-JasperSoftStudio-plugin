@@ -25,8 +25,6 @@ import net.sf.jasperreports.engine.JasperReportsContext;
 import org.eclipse.core.databinding.beans.PojoObservables;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -47,7 +45,7 @@ import com.jaspersoft.studio.swt.widgets.WSecretText;
  * the number of record, the number of value for each record, and the range
  * between every value is generated
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterComposite

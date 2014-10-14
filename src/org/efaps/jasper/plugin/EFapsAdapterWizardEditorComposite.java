@@ -50,7 +50,7 @@ import com.jaspersoft.studio.wizards.JSSWizard;
  * this case we don't need to configure additional informations, since all the
  * configuration data is already inside the data adapter
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterWizardEditorComposite

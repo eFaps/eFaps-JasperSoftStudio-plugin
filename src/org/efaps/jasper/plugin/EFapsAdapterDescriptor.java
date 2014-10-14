@@ -44,7 +44,7 @@ import com.jaspersoft.studio.utils.jasper.JasperReportsConfiguration;
  * This class provide information on the data adapter, like it's icon and the
  * classes to handle it, like editor and fields provider
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterDescriptor

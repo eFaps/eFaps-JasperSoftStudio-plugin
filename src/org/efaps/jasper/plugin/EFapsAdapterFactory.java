@@ -36,7 +36,7 @@ import com.jaspersoft.studio.data.adapter.IDataAdapterCreator;
  * This class provide information on the data adapter, like it's display name
  * and icon and has the capability to create it and its classes
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterFactory

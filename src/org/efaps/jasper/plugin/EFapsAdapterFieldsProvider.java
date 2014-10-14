@@ -39,7 +39,7 @@ import com.jaspersoft.studio.utils.jasper.JasperReportsConfiguration;
  * Field provider for the data adapter, take the data adapter and return the
  * number of fields returned by it
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterFieldsProvider

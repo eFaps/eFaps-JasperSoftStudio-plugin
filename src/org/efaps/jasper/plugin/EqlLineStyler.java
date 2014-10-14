@@ -19,17 +19,8 @@
  */
 package org.efaps.jasper.plugin;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Vector;
-
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.LineStyleEvent;
 import org.eclipse.swt.custom.LineStyleListener;
-import org.eclipse.swt.custom.StyleRange;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.wb.swt.ResourceManager;
 
 /**
  * This class provides the style information for the MongoDB query text (JSON

@@ -32,7 +32,7 @@ import com.jaspersoft.studio.data.DataAdapterEditor;
  * Return the editor controls to modify data adapter. They are also shown when
  * the data adapter is generated for the first time to allow to configure it.
  *
- * @author Orlandin Marco
+ * @author The eFaps Team
  *
  */
 public class EFapsAdapterEditor

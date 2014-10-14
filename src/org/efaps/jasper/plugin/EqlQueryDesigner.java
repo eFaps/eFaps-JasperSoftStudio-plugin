@@ -19,10 +19,6 @@
  */
 package org.efaps.jasper.plugin;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 
 import org.eclipse.swt.custom.StyledText;
