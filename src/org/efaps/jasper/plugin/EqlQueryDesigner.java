@@ -32,37 +32,35 @@ import org.eclipse.swt.widgets.Control;
 import com.jaspersoft.studio.data.designer.QueryDesigner;
 import com.jaspersoft.studio.wizards.ContextHelpIDs;
 
-
 /**
- * Query designer for PL/SQL language, that simply provides syntax coloring support.
- *
- * @author Massimo Rabbi (mrabbi@users.sourceforge.net)
+ * Query designer for PL/SQL language, that simply provides syntax coloring
+ * support.
  *
  */
-public class EqlQueryDesigner extends QueryDesigner {
+public class EqlQueryDesigner
+    extends QueryDesigner
+{
+
     /* Text area where enter the query */
     protected StyledText queryTextArea;
-    private EqlLineStyler lineStyler = new EqlLineStyler();
+    private final EqlLineStyler lineStyler = new EqlLineStyler();
 
-    public Control createControl(Composite parent) {
+    public Control createControl(final Composite parent)
+    {
         control = (StyledText) super.createControl(parent);
-        control.addLineStyleListener(lineStyler);
+        control.addLineStyleListener(this.lineStyler);
         return control;
     }
 
-    protected void queryTextAreaModified() {
+    protected void queryTextAreaModified()
+    {
         // keep the query info updated
-        ((JRDesignQuery) jDataset.getQuery()).setText(queryTextArea.getText());
+        ((JRDesignQuery) jDataset.getQuery()).setText(this.queryTextArea.getText());
     }
 
     @Override
-    public String getContextHelpId() {
+    public String getContextHelpId()
+    {
         return ContextHelpIDs.PREFIX.concat("query_eFaps");
     }
 }
-
-
-
-
-
-

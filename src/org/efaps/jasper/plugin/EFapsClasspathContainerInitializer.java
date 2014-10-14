@@ -26,17 +26,20 @@ import org.eclipse.jdt.core.IClasspathContainer;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 
-public class EFapsClasspathContainerInitializer extends
-        ClasspathContainerInitializer {
+public class EFapsClasspathContainerInitializer
+    extends ClasspathContainerInitializer
+{
 
     @Override
-    public void initialize(IPath containerPath, IJavaProject project)
-            throws CoreException {
-        EFapsClasspathContainer container = new EFapsClasspathContainer(
-                containerPath, project);
+    public void initialize(final IPath containerPath,
+                           final IJavaProject project)
+        throws CoreException
+    {
+        final EFapsClasspathContainer container = new EFapsClasspathContainer(
+                        containerPath, project);
         JavaCore.setClasspathContainer(containerPath,
-                new IJavaProject[] { project },
-                new IClasspathContainer[] { container }, null);
+                        new IJavaProject[] { project },
+                        new IClasspathContainer[] { container }, null);
     }
 
 }

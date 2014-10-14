@@ -36,39 +36,49 @@ import com.jaspersoft.studio.data.fields.IFieldsProvider;
 import com.jaspersoft.studio.utils.jasper.JasperReportsConfiguration;
 
 /**
- * Field provider for the data adapter, take the data adapter and return
- * the number of fields returned by it
+ * Field provider for the data adapter, take the data adapter and return the
+ * number of fields returned by it
  *
  * @author Orlandin Marco
  *
  */
-public class EFapsAdapterFieldsProvider implements IFieldsProvider {
+public class EFapsAdapterFieldsProvider
+    implements IFieldsProvider
+{
 
-       /**
-     * Returns the fields that are available from the adapter. The provider can use the passed in report
-     * to extract some additional configuration information such as report properties. In this
-     * case the data adapter is executed to get the data source and by looking at the result set the number
-     * of field is calculated
+    /**
+     * Returns the fields that are available from the adapter. The provider can
+     * use the passed in report to extract some additional configuration
+     * information such as report properties. In this case the data adapter is
+     * executed to get the data source and by looking at the result set the
+     * number of field is calculated
      *
-     * @param dataAdapterService the service of the data adapter, can used to get the result dataset from the data adapter
+     * @param dataAdapterService the service of the data adapter, can used to
+     *            get the result dataset from the data adapter
      * @param jasperReportsConfiguration the configuration of the current report
      * @param dataset the current dataset, in some cases it can be null
-     * @return a not null list of the field provided by the datasource with the current configuration
-     * @throws UnsupportedOperationException  is the method is not supported
+     * @return a not null list of the field provided by the datasource with the
+     *         current configuration
+     * @throws UnsupportedOperationException is the method is not supported
      * @throws JRException if an error occurs.
      */
-     @Override
-    public List<JRDesignField> getFields(DataAdapterService dataAdapterService, JasperReportsConfiguration jasperReportsConfiguration, JRDataset dataset) throws JRException, UnsupportedOperationException {
+    @Override
+    public List<JRDesignField> getFields(final DataAdapterService dataAdapterService,
+                                         final JasperReportsConfiguration jasperReportsConfiguration,
+                                         final JRDataset dataset)
+        throws JRException, UnsupportedOperationException
+    {
 
-        List<JRDesignField> designFields = new ArrayList<JRDesignField>();
-           Map<String, Object> runParameters = new HashMap<String, Object>();
-           dataAdapterService.contributeParameters(runParameters);
-           JRMapCollectionDataSource result = (JRMapCollectionDataSource)runParameters.get(JRParameter.REPORT_DATA_SOURCE);
+        final List<JRDesignField> designFields = new ArrayList<JRDesignField>();
+        final Map<String, Object> runParameters = new HashMap<String, Object>();
+        dataAdapterService.contributeParameters(runParameters);
+        final JRMapCollectionDataSource result = (JRMapCollectionDataSource) runParameters
+                        .get(JRParameter.REPORT_DATA_SOURCE);
 
-        if (result.getRecordCount() > 0){
-            Map<String, ?> record = result.getData().iterator().next();
-            for(String colName : record.keySet()){
-                JRDesignField field = new JRDesignField();
+        if (result.getRecordCount() > 0) {
+            final Map<String, ?> record = result.getData().iterator().next();
+            for (final String colName : record.keySet()) {
+                final JRDesignField field = new JRDesignField();
                 field.setName(colName);
                 field.setValueClass(Integer.class);
                 designFields.add(field);
@@ -79,16 +89,16 @@ public class EFapsAdapterFieldsProvider implements IFieldsProvider {
     }
 
     /**
-     * Return if the data adapter supports the operation to get automatically the fields
-     * with the current configuration
+     * Return if the data adapter supports the operation to get automatically
+     * the fields with the current configuration
      *
      * @param jConfig the current configuration
      * @return true if the fields providing is supported, false otherwise
      */
     @Override
-    public boolean supportsGetFieldsOperation(JasperReportsConfiguration jConfig) {
+    public boolean supportsGetFieldsOperation(final JasperReportsConfiguration jConfig)
+    {
         return true;
     }
 
-	
 }

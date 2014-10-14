@@ -39,7 +39,9 @@ import com.jaspersoft.studio.data.adapter.IDataAdapterCreator;
  * @author Orlandin Marco
  *
  */
-public class EFapsAdapterFactory implements DataAdapterFactory {
+public class EFapsAdapterFactory
+    implements DataAdapterFactory
+{
 
     /**
      * Creates a new instance of the data adapter
@@ -47,8 +49,9 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      * @return a not null instance of the data adapter
      */
     @Override
-    public DataAdapterDescriptor createDataAdapter() {
-        EFapsAdapterDescriptor descriptor = new EFapsAdapterDescriptor();
+    public DataAdapterDescriptor createDataAdapter()
+    {
+        final EFapsAdapterDescriptor descriptor = new EFapsAdapterDescriptor();
         return descriptor;
     }
 
@@ -64,7 +67,8 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      *         factory class
      */
     @Override
-    public String getDataAdapterClassName() {
+    public String getDataAdapterClassName()
+    {
         return EFapsDataAdapterImpl.class.getName();
     }
 
@@ -75,7 +79,8 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      * @return a not null and not empty string
      */
     @Override
-    public String getLabel() {
+    public String getLabel()
+    {
         return "EFapsAdapter";
     }
 
@@ -86,19 +91,20 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      * @return a not null string
      */
     @Override
-    public String getDescription() {
+    public String getDescription()
+    {
         return "EFapsAdapter";
     }
 
     /**
      * This method provides an icon for this data adapter.
      *
-     * @param size
-     *            the size in pixel of the icon
+     * @param size the size in pixel of the icon
      * @return the icon image, can be null if the image is not available
      */
     @Override
-    public Image getIcon(int size) {
+    public Image getIcon(final int size)
+    {
         if (size == 16) {
             return Activator.getDefault().getImage("images/no_image.png");
         }
@@ -109,16 +115,16 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      * Return the service for the passed data adapter or null if the factory
      * dosen't know how to handle it
      *
-     * @param dataAdapter
-     *            the data adapter
+     * @param dataAdapter the data adapter
      * @return the service for the data adapter or null
      */
     @Override
-    public DataAdapterService createDataAdapterService(DataAdapter dataAdapter) {
+    public DataAdapterService createDataAdapterService(final DataAdapter dataAdapter)
+    {
         if (dataAdapter instanceof EFapsDataAdapter)
             return new EFapsDataAdapterService(
-                    DefaultJasperReportsContext.getInstance(),
-                    (EFapsDataAdapter) dataAdapter);
+                            DefaultJasperReportsContext.getInstance(),
+                            (EFapsDataAdapter) dataAdapter);
         return null;
     }
 
@@ -131,7 +137,8 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      *         provided
      */
     @Override
-    public IDataAdapterCreator iReportConverter() {
+    public IDataAdapterCreator iReportConverter()
+    {
         return null;
     }
 
@@ -141,7 +148,8 @@ public class EFapsAdapterFactory implements DataAdapterFactory {
      * @return true if it was deprecated, false otherwise
      */
     @Override
-    public boolean isDeprecated() {
+    public boolean isDeprecated()
+    {
         return false;
     }
 }

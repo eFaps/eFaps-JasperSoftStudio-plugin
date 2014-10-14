@@ -33,29 +33,30 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 
-public class EFapsClasspathContainerFactory implements
-        IClasspathContainerFactory {
+public class EFapsClasspathContainerFactory
+    implements IClasspathContainerFactory
+{
 
     @Override
-    public void createJRClasspathContainer(IProgressMonitor monitor,
-            List<IClasspathEntry> centries, IJavaProject javaProject)
-            throws JavaModelException {
-        EFapsClasspathContainer classpathContainer = new EFapsClasspathContainer(
-                null, javaProject);
+    public void createJRClasspathContainer(final IProgressMonitor monitor,
+                                           final List<IClasspathEntry> centries,
+                                           final IJavaProject javaProject)
+        throws JavaModelException
+    {
+        final EFapsClasspathContainer classpathContainer = new EFapsClasspathContainer(
+                        null, javaProject);
         JavaCore.setClasspathContainer(EFapsClasspathContainer.ID,
-                new IJavaProject[] { javaProject },
-                new IClasspathContainer[] { classpathContainer }, monitor);
+                        new IJavaProject[] { javaProject },
+                        new IClasspathContainer[] { classpathContainer }, monitor);
         centries.add(JavaCore.newContainerEntry(EFapsClasspathContainer.ID,
-                true));
-        javaProject
-                .setRawClasspath(
-                        centries.toArray(new IClasspathEntry[centries.size()]),
-                        monitor);
+                        true));
+        javaProject.setRawClasspath(centries.toArray(new IClasspathEntry[centries.size()]),  monitor);
     }
 
     @Override
-    public Set<Path> isRemovable() {
-        Set<Path> set = new HashSet<Path>();
+    public Set<Path> isRemovable()
+    {
+        final Set<Path> set = new HashSet<Path>();
         set.add(EFapsClasspathContainer.ID);
         return set;
     }

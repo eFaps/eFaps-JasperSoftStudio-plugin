@@ -41,18 +41,18 @@ import com.jaspersoft.studio.data.secret.DataAdaptersSecretsProvider;
 import com.jaspersoft.studio.swt.widgets.WSecretText;
 
 /**
- * Inside this class are defined the controls shown when the
- * adapter is created on edited from Jaspersoft Studio.
- * This controls can be used the configure the data adapter.
- * With the example data adapter it provide the controls to define
- * the number of record, the number of value for each record, and
- * the range between every value is generated
+ * Inside this class are defined the controls shown when the adapter is created
+ * on edited from Jaspersoft Studio. This controls can be used the configure the
+ * data adapter. With the example data adapter it provide the controls to define
+ * the number of record, the number of value for each record, and the range
+ * between every value is generated
  *
  * @author Orlandin Marco
  *
  */
-public class EFapsAdapterComposite extends ADataAdapterComposite {
-
+public class EFapsAdapterComposite
+    extends ADataAdapterComposite
+{
 
     private WSecretText passwordField;
     /**
@@ -71,59 +71,65 @@ public class EFapsAdapterComposite extends ADataAdapterComposite {
      * @param style the style for the controls
      * @param context the current JasperReportsContext
      */
-    public EFapsAdapterComposite(Composite parent, int style, JasperReportsContext context) {
-        super(parent, style,context);
+    public EFapsAdapterComposite(final Composite parent,
+                                 final int style,
+                                 final JasperReportsContext context)
+    {
+        super(parent, style, context);
         initComponents();
     }
 
     /**
      * Create the controls
      */
-    private void initComponents() {
+    private void initComponents()
+    {
         setLayout(new GridLayout(2, false));
-        Label url = new Label(this, SWT.NONE);
+        final Label url = new Label(this, SWT.NONE);
         url.setText("URL");
-        url.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,1, 1));
+        url.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
-        urlField = new Text(this, SWT.BORDER);
-        urlField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,1, 1));
+        this.urlField = new Text(this, SWT.BORDER);
+        this.urlField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
-        Label userName = new Label(this, SWT.NONE);
+        final Label userName = new Label(this, SWT.NONE);
         userName.setText("User Name");
-        userName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,1, 1));
+        userName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
-        userNameField = new Text(this, SWT.BORDER);
-        userNameField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,1, 1));
+        this.userNameField = new Text(this, SWT.BORDER);
+        this.userNameField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
-        Label pswd = new Label(this, SWT.NONE);
+        final Label pswd = new Label(this, SWT.NONE);
         pswd.setText("Password");
-        pswd.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false,1, 1));
+        pswd.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 
-        passwordField = new WSecretText(this, SWT.BORDER | SWT.PASSWORD);
-        passwordField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        this.passwordField = new WSecretText(this, SWT.BORDER | SWT.PASSWORD);
+        this.passwordField.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
     }
 
-
     /**
-     * Return the current data adapter descriptor, if it is not available
-     * it is created
+     * Return the current data adapter descriptor, if it is not available it is
+     * created
      */
-    public DataAdapterDescriptor getDataAdapter() {
-        if (dataAdapterDescriptor == null) {
-            dataAdapterDescriptor = new EFapsAdapterDescriptor();
+    public DataAdapterDescriptor getDataAdapter()
+    {
+        if (this.dataAdapterDescriptor == null) {
+            this.dataAdapterDescriptor = new EFapsAdapterDescriptor();
         }
-        return dataAdapterDescriptor;
+        return this.dataAdapterDescriptor;
     }
 
     /**
-     * Set the data adapter descriptor from outside and bind the created controls to it
+     * Set the data adapter descriptor from outside and bind the created
+     * controls to it
      */
     @Override
-    public void setDataAdapter(DataAdapterDescriptor dataAdapterDescriptor) {
+    public void setDataAdapter(final DataAdapterDescriptor dataAdapterDescriptor)
+    {
         this.dataAdapterDescriptor = (EFapsAdapterDescriptor) dataAdapterDescriptor;
-        EFapsDataAdapter dataAdapter = (EFapsDataAdapter) dataAdapterDescriptor.getDataAdapter();
-        if (!passwordField.isWidgetConfigured()) {
-            passwordField.loadSecret(DataAdaptersSecretsProvider.SECRET_NODE_ID, dataAdapter.getPassword());
+        final EFapsDataAdapter dataAdapter = (EFapsDataAdapter) dataAdapterDescriptor.getDataAdapter();
+        if (!this.passwordField.isWidgetConfigured()) {
+            this.passwordField.loadSecret(DataAdaptersSecretsProvider.SECRET_NODE_ID, dataAdapter.getPassword());
         }
         bindWidgets(dataAdapter);
     }
@@ -135,20 +141,26 @@ public class EFapsAdapterComposite extends ADataAdapterComposite {
      * @param dataAdapter the data adapter
      */
     @Override
-    protected void bindWidgets(DataAdapter dataAdapter) {
-        bindingContext.bindValue(SWTObservables.observeText(urlField, SWT.Modify), PojoObservables.observeValue(dataAdapter, "url"));
-        bindingContext.bindValue(SWTObservables.observeText(userNameField, SWT.Modify), PojoObservables.observeValue(dataAdapter, "userName"));
-        bindingContext.bindValue(SWTObservables.observeText(passwordField, SWT.Modify), PojoObservables.observeValue(dataAdapter, "password"));
+    protected void bindWidgets(final DataAdapter dataAdapter)
+    {
+        bindingContext.bindValue(SWTObservables.observeText(this.urlField, SWT.Modify),
+                        PojoObservables.observeValue(dataAdapter, "url"));
+        bindingContext.bindValue(SWTObservables.observeText(this.userNameField, SWT.Modify),
+                        PojoObservables.observeValue(dataAdapter, "userName"));
+        bindingContext.bindValue(SWTObservables.observeText(this.passwordField, SWT.Modify),
+                        PojoObservables.observeValue(dataAdapter, "password"));
     }
 
     @Override
-    public void performAdditionalUpdates() {
+    public void performAdditionalUpdates()
+    {
         if (JaspersoftStudioPlugin.shouldUseSecureStorage()) {
-            passwordField.persistSecret();
-            // update the "password" replacing it with the UUID key saved in secure
+            this.passwordField.persistSecret();
+            // update the "password" replacing it with the UUID key saved in
+            // secure
             // preferences
-            EFapsDataAdapter dataAdapter = (EFapsDataAdapter) getDataAdapter().getDataAdapter();
-            dataAdapter.setPassword(passwordField.getUUIDKey());
+            final EFapsDataAdapter dataAdapter = (EFapsDataAdapter) getDataAdapter().getDataAdapter();
+            dataAdapter.setPassword(this.passwordField.getUUIDKey());
         }
     }
 }

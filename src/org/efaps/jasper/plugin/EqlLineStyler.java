@@ -32,23 +32,24 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.wb.swt.ResourceManager;
 
 /**
- * This class provides the style information for the MongoDB query text (JSON based) line being drawn.
+ * This class provides the style information for the MongoDB query text (JSON
+ * based) line being drawn.
  * <p>
  * NOTE: Re-used code and idea from JavaViewer SWT Example.
  *
- * @see MongoDBScanner
- *
  */
-public class EqlLineStyler implements LineStyleListener {
+public class EqlLineStyler
+    implements LineStyleListener
+{
 
-
-    public EqlLineStyler(){
+    public EqlLineStyler()
+    {
 
     }
 
-
     @Override
-    public void lineGetStyle(LineStyleEvent event) {
+    public void lineGetStyle(final LineStyleEvent event)
+    {
 
     }
 }

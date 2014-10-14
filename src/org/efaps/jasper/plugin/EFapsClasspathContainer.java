@@ -38,33 +38,40 @@ import org.eclipse.jdt.core.JavaCore;
 import org.osgi.framework.Bundle;
 import org.efaps.jasper.plugin.Activator;
 
-public class EFapsClasspathContainer implements IClasspathContainer {
-    public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); 
-    
-    private IPath _path;
+public class EFapsClasspathContainer
+    implements IClasspathContainer
+{
 
-    public EFapsClasspathContainer(IPath path, IJavaProject project) {
-        _path = path;
+    public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER");
+
+    private final IPath _path;
+
+    public EFapsClasspathContainer(final IPath path,
+                                   final IJavaProject project)
+    {
+        this._path = path;
     }
 
-    public IClasspathEntry[] getClasspathEntries() {
-        List<IClasspathEntry> entryList = new ArrayList<IClasspathEntry>();
+    public IClasspathEntry[] getClasspathEntries()
+    {
+        final List<IClasspathEntry> entryList = new ArrayList<IClasspathEntry>();
 
-        Bundle bundle = Activator.getDefault().getBundle();
-        Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true);
+        final Bundle bundle = Activator.getDefault().getBundle();
+        final Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true);
         if (urls != null) {
             while (urls.hasMoreElements()) {
-                URL url = urls.nextElement();
+                final URL url = urls.nextElement();
                 try {
-                    URL fileURL = FileLocator.toFileURL(url);
-                    URI uri = new URI(fileURL.getProtocol(), fileURL.getUserInfo(), fileURL.getHost(), fileURL.getPort(), fileURL.getPath(), fileURL.getQuery(), null);
+                    final URL fileURL = FileLocator.toFileURL(url);
+                    final URI uri = new URI(fileURL.getProtocol(), fileURL.getUserInfo(), fileURL.getHost(),
+                                    fileURL.getPort(), fileURL.getPath(), fileURL.getQuery(), null);
                     // fileURL.toURI();
-                    Path binpath = new Path(new File(uri).getAbsolutePath());
-                    Path srcpath = binpath;
-                    entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/"))); 
-                } catch (URISyntaxException e) {
+                    final Path binpath = new Path(new File(uri).getAbsolutePath());
+                    final Path srcpath = binpath;
+                    entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/")));
+                } catch (final URISyntaxException e) {
                     e.printStackTrace();
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -73,15 +80,18 @@ public class EFapsClasspathContainer implements IClasspathContainer {
         return entryList.toArray(new IClasspathEntry[entryList.size()]);
     }
 
-    public String getDescription() {
-        return "eFaps Library"; 
+    public String getDescription()
+    {
+        return "eFaps Library";
     }
 
-    public int getKind() {
+    public int getKind()
+    {
         return IClasspathContainer.K_APPLICATION;
     }
 
-    public IPath getPath() {
-        return _path;
+    public IPath getPath()
+    {
+        return this._path;
     }
 }
