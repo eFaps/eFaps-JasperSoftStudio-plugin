@@ -17,18 +17,20 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.data;
+package org.efaps.jasper.plugin;
 
 import net.sf.jasperreports.data.DataAdapter;
 import net.sf.jasperreports.data.DataAdapterService;
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 
 import org.eclipse.swt.graphics.Image;
-import org.efaps.jasper.eql.Activator;
+import org.efaps.jasper.data.EFapsDataAdapter;
+import org.efaps.jasper.data.EFapsDataAdapterImpl;
+import org.efaps.jasper.data.EFapsDataAdapterService;
 
-import com.jaspersoft.studio.data.adapter.IDataAdapterCreator;
 import com.jaspersoft.studio.data.DataAdapterDescriptor;
 import com.jaspersoft.studio.data.DataAdapterFactory;
+import com.jaspersoft.studio.data.adapter.IDataAdapterCreator;
 
 /**
  * This class provide information on the data adapter, like it's display name

@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.eql;
+package org.efaps.jasper.plugin;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,8 +36,7 @@ import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.osgi.framework.Bundle;
-
-import  org.efaps.jasper.eql.Activator;
+import org.efaps.jasper.plugin.Activator;
 
 public class EFapsClasspathContainer implements IClasspathContainer {
     public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); //$NON-NLS-1$

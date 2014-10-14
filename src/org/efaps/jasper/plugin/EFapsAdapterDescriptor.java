@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.data;
+package org.efaps.jasper.plugin;
 
 import java.util.List;
 
@@ -30,7 +30,8 @@ import net.sf.jasperreports.engine.design.JRDesignField;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
-import org.efaps.jasper.eql.Activator;
+import org.efaps.jasper.data.EFapsDataAdapter;
+import org.efaps.jasper.data.EFapsDataAdapterImpl;
 
 import com.jaspersoft.studio.data.AWizardDataEditorComposite;
 import com.jaspersoft.studio.data.DataAdapterDescriptor;

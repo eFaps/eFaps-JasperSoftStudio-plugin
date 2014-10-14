@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.data;
+package org.efaps.jasper.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +25,12 @@ import java.util.List;
 import net.sf.jasperreports.data.DataAdapterService;
 import net.sf.jasperreports.engine.JRDataset;
 import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
 import net.sf.jasperreports.engine.design.JRDesignField;
+
 import java.util.Map;
 import java.util.HashMap;
-import net.sf.jasperreports.engine.data.JRMapCollectionDataSource;
-import net.sf.jasperreports.engine.JRParameter;
 
 import com.jaspersoft.studio.data.fields.IFieldsProvider;
 import com.jaspersoft.studio.utils.jasper.JasperReportsConfiguration;
@@ -88,4 +89,6 @@ public class EFapsAdapterFieldsProvider implements IFieldsProvider {
     public boolean supportsGetFieldsOperation(JasperReportsConfiguration jConfig) {
         return true;
     }
+
+	
 }

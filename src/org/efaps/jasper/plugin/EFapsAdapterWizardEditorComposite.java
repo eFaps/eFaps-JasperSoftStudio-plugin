@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.data;
+package org.efaps.jasper.plugin;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,6 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.efaps.jasper.eql.Activator;
 
 import com.jaspersoft.studio.data.AWizardDataEditorComposite;
 import com.jaspersoft.studio.data.DataAdapterDescriptor;

@@ -5,7 +5,7 @@
 <extension
          point="com.jaspersoft.studio.queryDesigner">
       <queryDesigner
-            QueryDesignerClass="org.efaps.jasper.eql.EqlQueryDesigner"
+            QueryDesignerClass="org.efaps.jasper.plugin.EqlQueryDesigner"
             language="eFaps">
       </queryDesigner>
 
@@ -15,18 +15,18 @@
         name="org.efaps.jasper.eFaps_CONTAINER"
         point="org.eclipse.jdt.core.classpathContainerInitializer">
      <classpathContainerInitializer
-           class="org.efaps.jasper.eql.EFapsClasspathContainerInitializer"
+           class="org.efaps.jasper.plugin.EFapsClasspathContainerInitializer"
            id="org.efaps.jasper.eFaps_CONTAINER">
      </classpathContainerInitializer>
   </extension>
 <extension
       point="net.sf.jasperreports.classpathcontainer">
       <classpathcontainer
-           ClassFactory="org.efaps.jasper.eql.EFapsClasspathContainerFactory">
+           ClassFactory="org.efaps.jasper.plugin.EFapsClasspathContainerFactory">
       </classpathcontainer>
 </extension>
 <extension
          point="com.jaspersoft.studio.dataAdapters">
-         <dataAdapter ClassFactory="org.efaps.jasper.data.EFapsAdapterFactory"/>
+         <dataAdapter ClassFactory="org.efaps.jasper.plugin.EFapsAdapterFactory"/>
    </extension>
 </plugin>

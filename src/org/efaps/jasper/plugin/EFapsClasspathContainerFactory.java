@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.eql;
+package org.efaps.jasper.plugin;
 
 import java.util.HashSet;
 import java.util.List;

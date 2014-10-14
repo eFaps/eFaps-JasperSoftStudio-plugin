@@ -17,7 +17,7 @@
  * Last Changed:    $Date$
  * Last Changed By: $Author$
  */
-package org.efaps.jasper.data;
+package org.efaps.jasper.plugin;
 
 import net.sf.jasperreports.data.DataAdapter;
 import net.sf.jasperreports.engine.JasperReportsContext;
@@ -32,6 +32,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.efaps.jasper.data.EFapsDataAdapter;
 
 import com.jaspersoft.studio.JaspersoftStudioPlugin;
 import com.jaspersoft.studio.data.ADataAdapterComposite;
