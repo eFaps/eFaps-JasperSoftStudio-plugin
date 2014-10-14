@@ -39,9 +39,8 @@ import org.osgi.framework.Bundle;
 import org.efaps.jasper.plugin.Activator;
 
 public class EFapsClasspathContainer implements IClasspathContainer {
-    public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); //$NON-NLS-1$
-
-    // path string that uniquiely identifies this container instance
+    public final static Path ID = new Path("org.efaps.jasper.eFaps_CONTAINER"); 
+    
     private IPath _path;
 
     public EFapsClasspathContainer(IPath path, IJavaProject project) {
@@ -52,7 +51,7 @@ public class EFapsClasspathContainer implements IClasspathContainer {
         List<IClasspathEntry> entryList = new ArrayList<IClasspathEntry>();
 
         Bundle bundle = Activator.getDefault().getBundle();
-        Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true); //$NON-NLS-1$ //$NON-NLS-2$
+        Enumeration<URL> urls = bundle.findEntries("lib/", "*.jar", true);
         if (urls != null) {
             while (urls.hasMoreElements()) {
                 URL url = urls.nextElement();
@@ -62,7 +61,7 @@ public class EFapsClasspathContainer implements IClasspathContainer {
                     // fileURL.toURI();
                     Path binpath = new Path(new File(uri).getAbsolutePath());
                     Path srcpath = binpath;
-                    entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/"))); //$NON-NLS-1$
+                    entryList.add(JavaCore.newLibraryEntry(binpath, srcpath, new Path("/"))); 
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
@@ -75,7 +74,7 @@ public class EFapsClasspathContainer implements IClasspathContainer {
     }
 
     public String getDescription() {
-        return "eFaps Library"; //$NON-NLS-1$
+        return "eFaps Library"; 
     }
 
     public int getKind() {

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EFaps Jaspersoft Studio Plugin
 Bundle-SymbolicName: org.efaps.jasper.plugin;singleton:=true
-Bundle-Version: 1.0.11
+Bundle-Version: 1.0.12
 Bundle-Activator: org.efaps.jasper.plugin.Activator
 Bundle-ClassPath: .,
  lib/efaps-json-3.2.0-SNAPSHOT.jar,
@@ -10,7 +10,8 @@ Bundle-ClassPath: .,
  lib/joda-time-2.5.jar,
  lib/efaps-jasper-integration-3.2.0-SNAPSHOT.jar,
  lib/httpclient-4.3.5.jar,
- lib/httpcore-4.3.2.jar
+ lib/httpcore-4.3.2.jar,
+ lib/commons-codec-1.6.jar
 Bundle-Vendor: eFaps
 Bundle-ActivationPolicy: lazy
 Export-Package: com.fasterxml.jackson.datatype.joda,
@@ -37,20 +38,19 @@ Export-Package: com.fasterxml.jackson.datatype.joda,
  org.joda.time.tz
 Eclipse-BuddyPolicy: registered
 Eclipse-RegisterBuddy: com.jaspersoft.studio.data
-Import-Package: net.sf.jasperreports.extensions,
+Import-Package: com.jaspersoft.studio.data.adapter,
+ com.jaspersoft.studio.data.secret,
+ com.jaspersoft.studio.model.util,
+ net.sf.jasperreports.data,
+ net.sf.jasperreports.eclipse,
+ net.sf.jasperreports.eclipse.classpath.container,
  net.sf.jasperreports.engine,
  net.sf.jasperreports.engine.design,
  net.sf.jasperreports.engine.query,
  net.sf.jasperreports.engine.util,
  net.sf.jasperreports.engine.xml,
- net.sf.jasperreports.data,
- net.sf.jasperreports.eclipse,
- net.sf.jasperreports.eclipse.classpath.container,
+ net.sf.jasperreports.extensions,
  net.sf.jasperreports.repo,
- com.jaspersoft.studio.data.secret,
- com.jaspersoft.studio.data.sql,
- com.jaspersoft.studio.data.adapter,
- com.jaspersoft.studio.model.util,
  org.eclipse.core.databinding,
  org.eclipse.core.databinding.beans,
  org.eclipse.core.databinding.observable.value,
