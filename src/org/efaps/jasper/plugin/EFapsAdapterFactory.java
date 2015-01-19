@@ -22,6 +22,7 @@ package org.efaps.jasper.plugin;
 import net.sf.jasperreports.data.DataAdapter;
 import net.sf.jasperreports.data.DataAdapterService;
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
+import net.sf.jasperreports.engine.JasperReportsContext;
 
 import org.eclipse.swt.graphics.Image;
 import org.efaps.jasper.data.EFapsDataAdapter;
@@ -42,18 +43,6 @@ import com.jaspersoft.studio.data.adapter.IDataAdapterCreator;
 public class EFapsAdapterFactory
     implements DataAdapterFactory
 {
-
-    /**
-     * Creates a new instance of the data adapter
-     *
-     * @return a not null instance of the data adapter
-     */
-    @Override
-    public DataAdapterDescriptor createDataAdapter()
-    {
-        final EFapsAdapterDescriptor descriptor = new EFapsAdapterDescriptor();
-        return descriptor;
-    }
 
     /**
      * This method returns the class name of the DataAdapter implementation.
@@ -119,13 +108,27 @@ public class EFapsAdapterFactory
      * @return the service for the data adapter or null
      */
     @Override
-    public DataAdapterService createDataAdapterService(final DataAdapter dataAdapter)
+    public DataAdapterService createDataAdapterService(
+                                                       final JasperReportsContext _jasperReportsContext,
+                                                       final DataAdapter _dataAdapter)
     {
-        if (dataAdapter instanceof EFapsDataAdapter)
+        if (_dataAdapter instanceof EFapsDataAdapter)
             return new EFapsDataAdapterService(
                             DefaultJasperReportsContext.getInstance(),
-                            (EFapsDataAdapter) dataAdapter);
+                            (EFapsDataAdapter) _dataAdapter);
         return null;
+    }
+
+    /**
+     * Creates a new instance of the data adapter
+     *
+     * @return a not null instance of the data adapter
+     */
+    @Override
+    public DataAdapterDescriptor createDataAdapter()
+    {
+        final EFapsAdapterDescriptor descriptor = new EFapsAdapterDescriptor();
+        return descriptor;
     }
 
     /**
