@@ -2,15 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EFaps Jaspersoft Studio Plugin
 Bundle-SymbolicName: org.efaps.jasper.plugin;singleton:=true
-Bundle-Version: 1.2.0
+Bundle-Version: 1.2.3
 Bundle-Activator: org.efaps.jasper.plugin.Activator
 Bundle-ClassPath: .,
  lib/efaps-json-3.2.0-SNAPSHOT.jar,
- lib/jackson-datatype-joda-2.1.5.jar,
  lib/efaps-jasper-integration-3.2.0-SNAPSHOT.jar,
  lib/httpclient-4.3.5.jar,
  lib/httpcore-4.3.2.jar,
- lib/commons-codec-1.6.jar
+ lib/commons-codec-1.6.jar,
+ lib/jackson-datatype-joda-2.1.5.jar
 Bundle-Vendor: eFaps.org
 Bundle-ActivationPolicy: lazy
 Eclipse-BuddyPolicy: registered
