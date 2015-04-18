@@ -2,15 +2,15 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EFaps Jaspersoft Studio Plugin
 Bundle-SymbolicName: org.efaps.jasper.plugin;singleton:=true
-Bundle-Version: 1.2.3
+Bundle-Version: 2.0.0
 Bundle-Activator: org.efaps.jasper.plugin.Activator
 Bundle-ClassPath: .,
- lib/efaps-json-3.2.0-SNAPSHOT.jar,
- lib/efaps-jasper-integration-3.2.0-SNAPSHOT.jar,
  lib/httpclient-4.3.5.jar,
  lib/httpcore-4.3.2.jar,
  lib/commons-codec-1.6.jar,
- lib/jackson-datatype-joda-2.1.5.jar
+ lib/jackson-datatype-joda-2.1.5.jar,
+ lib/efaps-jasper-integration-5.0.0-SNAPSHOT.jar,
+ lib/efaps-json-5.0.0-SNAPSHOT.jar
 Bundle-Vendor: eFaps.org
 Bundle-ActivationPolicy: lazy
 Eclipse-BuddyPolicy: registered
@@ -40,19 +40,9 @@ Import-Package: com.jaspersoft.studio.data.adapter,
  org.eclipse.ui.plugin,
  org.osgi.framework
 Require-Bundle: net.sf.jasperreports,
- com.jaspersoft.studio.data
-Export-Package: com.fasterxml.jackson.datatype.joda,
- com.fasterxml.jackson.datatype.joda.deser,
- com.fasterxml.jackson.datatype.joda.ser,
- org.apache.commons.codec,
- org.apache.commons.codec.binary,
- org.apache.commons.codec.digest,
- org.apache.commons.codec.language,
- org.apache.commons.codec.language.bm,
- org.apache.commons.codec.net,
- org.apache.commons.logging,
- org.apache.commons.logging.impl,
- org.efaps.jasper.data,
+ com.jaspersoft.studio.data,
+ com.jaspersoft.studio
+Export-Package: org.efaps.jasper.data,
  org.efaps.jasper.data.connection,
  org.efaps.jasper.eql,
  org.efaps.jasper.plugin,
