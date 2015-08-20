@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EFaps Jaspersoft Studio Plugin
 Bundle-SymbolicName: org.efaps.jasper.plugin;singleton:=true
-Bundle-Version: 2.0.0
+Bundle-Version: 2.0.1
 Bundle-Activator: org.efaps.jasper.plugin.Activator
 Bundle-ClassPath: .,
  lib/httpclient-4.3.5.jar,
