@@ -2,48 +2,20 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EFaps Jaspersoft Studio Plugin
 Bundle-SymbolicName: org.efaps.jasper.plugin;singleton:=true
-Bundle-Version: 2.0.1
+Bundle-Version: 2.0.2
 Bundle-Activator: org.efaps.jasper.plugin.Activator
 Bundle-ClassPath: .,
  lib/httpclient-4.3.5.jar,
  lib/httpcore-4.3.2.jar,
  lib/commons-codec-1.6.jar,
- lib/jackson-datatype-joda-2.1.5.jar,
  lib/efaps-jasper-integration-5.0.0-SNAPSHOT.jar,
- lib/efaps-json-5.0.0-SNAPSHOT.jar
+ lib/efaps-json-5.0.0-SNAPSHOT.jar,
+ lib/jackson-datatype-joda-2.4.6.jar
 Bundle-Vendor: eFaps.org
 Bundle-ActivationPolicy: lazy
 Eclipse-BuddyPolicy: registered
 Eclipse-RegisterBuddy: com.jaspersoft.studio.data
-Import-Package: com.jaspersoft.studio.data.adapter,
- com.jaspersoft.studio.data.secret,
- com.jaspersoft.studio.model.util,
- net.sf.jasperreports.data,
- net.sf.jasperreports.eclipse,
- net.sf.jasperreports.eclipse.classpath.container,
- net.sf.jasperreports.engine,
- net.sf.jasperreports.engine.design,
- net.sf.jasperreports.engine.query,
- net.sf.jasperreports.engine.util,
- net.sf.jasperreports.engine.xml,
- net.sf.jasperreports.extensions,
- net.sf.jasperreports.repo,
- org.eclipse.core.databinding,
- org.eclipse.core.databinding.beans,
- org.eclipse.core.databinding.observable.value,
- org.eclipse.core.runtime,
- org.eclipse.jdt.core,
- org.eclipse.jface.databinding.swt,
- org.eclipse.jface.wizard,
- org.eclipse.swt,
- org.eclipse.swt.graphics,
- org.eclipse.ui.plugin,
- org.osgi.framework
 Require-Bundle: net.sf.jasperreports,
  com.jaspersoft.studio.data,
  com.jaspersoft.studio
-Export-Package: org.efaps.jasper.data,
- org.efaps.jasper.data.connection,
- org.efaps.jasper.eql,
- org.efaps.jasper.plugin,
- org.efaps.json.data
+Export-Package: org.efaps.jasper.plugin
