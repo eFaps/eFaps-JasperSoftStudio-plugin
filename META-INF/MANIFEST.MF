@@ -18,4 +18,10 @@ Eclipse-RegisterBuddy: com.jaspersoft.studio.data
 Require-Bundle: net.sf.jasperreports,
  com.jaspersoft.studio.data,
  com.jaspersoft.studio
-Export-Package: org.efaps.jasper.plugin
+Export-Package: org.efaps.jasper.data,
+ org.efaps.jasper.data.connection,
+ org.efaps.jasper.eql,
+ org.efaps.jasper.plugin,
+ org.efaps.json,
+ org.efaps.json.ci,
+ org.efaps.json.data
